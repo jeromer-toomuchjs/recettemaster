@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Recette Master</title>
+
+    <!-- jQuery + jQueryUI -->
+    <link
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap, not that I use it much -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Project js -->
+    <script src="./js/utils.js"></script>
+    <script src="./js/Recette.js"></script>
+    <script src="./js/render.js"></script>
+    <script src="./js/courses.js"></script>
+    <script src="./js/garde_manger.js"></script>
+
+    <!-- Project css -->
+    <link href="./css/main.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="bg-soft rounded my-3 d-flex flex-row justify-content-center">
+        <div id="add_recette" class="mx-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            style="height: 2em"
+          >
+            <path
+              d="M311.9 47.95c-17.6 0-34.6.7-50.7 2.43L244.6 93.5l-4.9-40.04c-2.5.46-5 .94-7.5 1.47-9.1 1.94-15.1 7.22-20.3 14.87-5.2 7.65-8.9 17.5-12.1 26.6C191 121.5 184 148 178.4 175c6 5.1 12 10.3 17.9 15.4l30.7-17.6 33.8 26.1 51.9-19.7 61 24.5-6.8 16.7-54.4-21.8-54.7 20.7-32.2-24.9-14.9 8.5c19.6 17.3 38.6 34.4 56.5 51.2l14-6.4 33.9 16.1 31.2-13.1 24.2 23.3-12.4 13-15.8-15.1-27.6 11.7-33-15.8c6.9 6.7 13.6 13.2 20.1 19.7l1.7 1.8 19.5 76.3-7.8-5.7-53 .4-38.1-17.8-42.4 14.6-5.8-17 49.2-17 41.1 19.2 24.7-.2-70.7-51.7c-19.7 4.6-39.4 2.8-58.1-3.7-4.2 44.4-5.9 85.7-7 118.7-.4 10.7 2.7 23 7.5 32.5 4.9 9.5 11.7 15.4 15 16.1 5.2 1.2 19 3.2 37.7 5.1l12.4-39 19.1 41.7c16.7 1.2 35 2 53.5 2.2 28.2.3 57.1-.9 82-4.7 15.8-2.3 29.6-6 40.7-10.4-11.8-5.1-21.6-10.6-29.1-16.6-11.1-8.9-18.2-19.3-17.3-30.9v.2c5.4-96.4 10.8-188.8 30.3-286l.1-.4.1-.4c5.3-17.9 17.9-39.86 36.1-55.83-13.9-2.06-28.6-4-43.7-5.66l-22.3 25.3-2.2-27.7c-19-1.64-38.4-2.71-57.4-2.92h-5.7zm148.5 20.44c-4.7 3.69-9.2 8.03-13.3 12.73 12.1 8.18 21.4 23.38 21.8 36.98.3 7.8-1.9 14.9-7.7 21.4-5.8 6.4-15.6 12.4-31.6 15.8l3.8 17.6c18.6-4 32.3-11.5 41.2-21.4 9-9.9 12.7-22.2 12.3-34-.6-19.3-11.1-37.59-26.5-49.11zM25.44 71.91c-.24 1.61-.38 3.43-.38 5.62.1 7.69 2.03 18.17 5.83 30.17 3.41 10.7 8.27 22.5 14.35 34.8 10.63-5.3 20.59-11 28.41-18.1-4.42 12.5-10.15 24.7-18.6 36.5 4.14 7.2 8.63 14.4 13.45 21.5 10.64-5.3 20.72-13 29.52-26.1-3.3 16-8.47 30.6-18.27 41.8 6.53 8.5 13.5 16.8 20.75 24.5 8.7-9.3 15.6-21 20.7-34.9 3.8 18.5 2.6 35.3-5.7 49.4 8 7.2 16.3 13.7 24.8 19.1 6.1-14 8.9-30.6 8.5-49.7 9.2 23.7 11.3 42.9 9.6 59.5 20.2 9.2 40.8 12 61.3 6.1l4.2-1.3 69.3 50.6-5.9-22.8c-73-72.8-175.4-156.7-261.86-226.69zM312.8 123.9l33.2 13.8 31.3-9.9 5.4 17.2-37.5 11.9-33.6-14-28.8 8.1-4.8-17.4zm107.3 236.2c-.7 0-1.3.1-2 .1-3.5.1-7.2.5-11.1 1.3l3.4 17.6c12.2-2.3 20-.4 24.5 2.5 4.4 2.9 6.3 6.8 6.4 12.5.1 9.3-7 23-23.3 32.5 5.4 2.9 11.9 5.9 19.3 8.7 14.4-11.6 22.1-26.8 22-41.4-.1-10.7-5.2-21.2-14.6-27.4-6.7-4.3-15-6.5-24.6-6.4z"
+              style="fill: var(--bs-body-color)"
+              fill-opacity="1"
+            ></path>
+          </svg>
+        </div>
+        <div class="bg-body rounded p-1 m-2 display_recettes">Mes Recettes</div>
+        <div class="bg-body rounded p-1 m-2 display_garde_manger">
+          Mon Garde-Manger
+        </div>
+        <div class="bg-body rounded p-1 m-2 display_liste_de_courses">
+          Ma Liste de Courses
+        </div>
+        <div id="toggle_dark_mode">
+          <svg
+            class="Icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            style="height: 2em"
+          >
+            <path
+              d="M294.8 26.57L238 60.37l7.8 13.17L281 52.59 270.8 118l6.3 10.6L336 93.53l-7.8-13.17-37.3 22.14L301 37.12l-6.2-10.55zM147.1 60.55A224 224 0 0 0 32 256a224 224 0 0 0 224 224 224 224 0 0 0 214.9-161.2A208 208 0 0 1 320 384a208 208 0 0 1-208-208 208 208 0 0 1 35.1-115.45zm244.5 52.05l-6.9 16.5 44.1 18.4-68.3 35.9-5.5 13.2 73.7 30.8 6.9-16.5-46.7-19.5 68.3-35.9 5.5-13.2-71.1-29.7zm-115 64l-97.8 35 8.1 22.7 60.6-21.7-35.4 97.9 6.5 18.1L320 292.4l-8.1-22.7-64.2 23 35.4-97.9-6.5-18.2z"
+              style="fill: var(--bs-body-color)"
+              fill-opacity="1"
+            ></path>
+          </svg>
+        </div>
+      </nav>
+
+      <div id="recette_list">
+        <div class="recette possible rounded">
+          <h2>Omelette</h2>
+          <ul>
+            <li>3 œufs</li>
+            <li>sel et poivre</li>
+            <li>15 gr de beurre</li>
+            <li>1 tranche de jambon</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="garde_manger"></div>
+
+      <div id="liste_de_courses">
+        <div class="courses_ingredients"></div>
+        <div class="courses_recettes"></div>
+        <div
+          style="
+            grid-column-start: 1;
+            grid-column-end: 3;
+            text-align: center;
+            margin-top: 1em;
+          "
+        >
+          <input
+            type="button"
+            value="Je fais mes courses !"
+            class="finishCourses"
+          />
+        </div>
+      </div>
+    </div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      style="fill: var(--bs-body-color)"
+      class="bi bi-file-minus hidden"
+      viewBox="0 0 16 16"
+    >
+      <path d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5" />
+      <path
+        d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"
+      />
+    </svg>
+    <form class="new_ingredient_form hidden">
+      <div class="d-flex flex-row p-2">
+        <input type="text" value="" placeholder="0" class="quantity w-25" />
+        <select class="quantity_type">
+          <option value="u">Unités</option>
+          <option value="cl">Centilitres</option>
+          <option value="g">Grammes</option>
+        </select>
+        <input
+          type="text"
+          value=""
+          placeholder="Ingrédient"
+          class="ingredient_name w-50"
+        />
+      </div>
+      <div style="text-align: center">
+        <input
+          type="button"
+          class="addNewIngredient"
+          value="Ajouter"
+        />&nbsp;<input type="button" class="finishRecette" value="Terminer" />
+      </div>
+    </form>
+    <script>
+      var global_ingredient_names = [];
+      var garde_manger = {};
+
+      var liste_de_courses = {};
+
+      var mes_recettes = [];
+
+      function updateGlobalIngredientNames() {
+        global_ingredient_names = [];
+        for (let i = 0; i < mes_recettes.length; i++) {
+          for (let j = 0; j < mes_recettes[i].ingredient_names.length; j++) {
+            if (
+              !global_ingredient_names.includes(
+                mes_recettes[i].ingredient_names[j]
+              )
+            ) {
+              global_ingredient_names.push(mes_recettes[i].ingredient_names[j]);
+            }
+          }
+        }
+      }
+
+      function addRecette() {
+        if ($(".recette.new").length) {
+          alert(
+            "Vous devez terminer votre recette avant d'en créer une nouvelle."
+          );
+          return;
+        } else {
+          var nouvelle_recette = $(
+            '<div class="recette new rounded"><h2 class="d-flex flex-row"><input type="text" id="new_title"/><input type="button" id="add_title" value="+"></h2><ul class="ingredient_list"></ul></div>'
+          );
+          nouvelle_recette.prependTo("#recette_list");
+          $(".recette.new input").focus();
+          $("#add_title").on("click", function () {
+            title = $("#new_title").val();
+            nouvelle_recette
+              .find("h2")
+              .removeClass("d-flex flex-row")
+              .text(title);
+            var new_id = mes_recettes.push(new Recette(title)) - 1;
+            nouvelle_recette
+              .attr("id", "recette" + new_id)
+              .prepend(
+                '<input type="hidden" value="' +
+                  new_id +
+                  '" class="recette_id"/>'
+              );
+            addNewIngredientToRecette(nouvelle_recette);
+          });
+        }
+      }
+
+      function addNewIngredientToRecette(recette) {
+        var id = recette.find(".recette_id").val();
+        recette.find(".manger").remove();
+        recette
+          .addClass("new")
+          .find(".ingredient_list")
+          .html(mes_recettes[id].modifiable_ingredient_list);
+        $(".new_ingredient_form")
+          .clone()
+          .removeClass("hidden")
+          .appendTo(recette);
+        updateGlobalIngredientNames();
+        recette.find(".ingredient_name").autocomplete({
+          source: function (request, response) {
+            var matcher = new RegExp(
+              $.ui.autocomplete.escapeRegex(request.term),
+              "i"
+            );
+            response(
+              $.grep(global_ingredient_names, function (value) {
+                value = value.label || value.value || value;
+                return matcher.test(value) || matcher.test(normalize(value));
+              })
+            );
+          },
+        });
+        recette.find(".addNewIngredient").on("click", function () {
+          var q = recette.find(".new_ingredient_form .quantity").val();
+          var q_t = recette.find(".new_ingredient_form .quantity_type").val();
+          var i_n = recette.find(".new_ingredient_form .ingredient_name").val();
+
+          if (q > 0 && i_n.length > 0) {
+            mes_recettes[id].add_ingredient(q, q_t, i_n);
+            recette
+              .find(".ingredient_list")
+              .html(mes_recettes[id].modifiable_ingredient_list);
+            recette.find(".new_ingredient_form .quantity").val(0);
+            recette.find(".new_ingredient_form .quantity_type").val("u");
+            recette.find(".new_ingredient_form .ingredient_name").val("");
+          }
+        });
+        recette.find(".finishRecette").on("click", function () {
+          var q = recette.find(".new_ingredient_form .quantity").val();
+          var q_t = recette.find(".new_ingredient_form .quantity_type").val();
+          var i_n = recette.find(".new_ingredient_form .ingredient_name").val();
+
+          if (q > 0 && i_n.length > 0) {
+            mes_recettes[id].add_ingredient(q, q_t, i_n);
+          }
+
+          recette.find(".ingredient_list li").each(function () {
+            var name = $(this).find(".ingredient_id").val();
+            var q = $(this).find(".quantity").val();
+            var q_t = $(this).find(".quantity_type").val();
+            if (q > 0) {
+              mes_recettes[id].add_ingredient(q, q_t, name);
+            } else {
+              mes_recettes[id].remove_ingredient(name);
+            }
+          });
+
+          save();
+          renderMesRecettes();
+        });
+      }
+
+      function editRecetteTitle() {
+        if ($(this).parent(".recette").find(".recette_id").val() >= 0) {
+          var recette = $(this).parent(".recette");
+          var id = recette.find(".recette_id").val();
+          recette
+            .addClass("new")
+            .find("h2")
+            .addClass("d-flex flex-row")
+            .html(
+              '<input type="text" id="new_title" value="' +
+                recette.find("h2").text() +
+                '"/><input type="button" id="edit_title" value="+">'
+            );
+          $("#edit_title").on("click", function () {
+            title = $("#new_title").val();
+            recette
+              .removeClass("new")
+              .find("h2")
+              .removeClass("d-flex flex-row")
+              .text(title);
+            mes_recettes[id].edit_title(title);
+            save();
+          });
+        }
+      }
+
+      function editRecetteIngredients() {
+        if ($(".recette.new").length) {
+          alert(
+            "Vous devez terminer votre recette avant d'en créer une nouvelle."
+          );
+          return;
+        } else if ($(this).parent(".recette").find(".recette_id").val() >= 0) {
+          var recette = $(this).parent(".recette");
+          addNewIngredientToRecette(recette);
+        }
+      }
+
+      function save() {
+        var recettemastersave = {};
+        recettemastersave.global_ingredient_names = global_ingredient_names;
+        recettemastersave.mes_recettes = mes_recettes.map((e) =>
+          e.export_recette()
+        );
+        recettemastersave.garde_manger = garde_manger;
+        recettemastersave.liste_de_courses = liste_de_courses;
+        localStorage.setItem(
+          "recettemastersave",
+          JSON.stringify(recettemastersave)
+        );
+      }
+
+      function deleteSave() {
+        localStorage.removeItem("recettemastersave");
+      }
+
+      function init() {
+        fakesave = `{"global_ingredient_names":["œuf(s)","beurre","tranche(s) de jambon","pâtes","gousse(s) d'ail","huile","tomate(s)","mozarella","feuille(s) de basilic"],"mes_recettes":[["Omelette au jambon",[[3,"u","œuf(s)"],[15,"g","beurre"],[1,"u","tranche(s) de jambon"]]],["Pâtes à l'ail et à l'huile",[[200,"g","pâtes"],[3,"u","gousse(s) d'ail"],[6,"cl","huile"]]],["Salade Caprese",[[2,"u","tomate(s)"],[200,"g","mozarella"],[10,"u","feuille(s) de basilic"],[3,"cl","huile"]]],["Tacos au bœuf",[[8,"u","tortilla(s)"],[400,"g","bœuf haché"],[100,"g","fromage râpé"],[15,"cl","salsa"]]]],"garde_manger":{"pomme(s) de terre":["u",4],"beurre":["g",400],"tomate(s)":["u",2],"mozarella":["g",200],"feuille(s) de basilic":["u",10],"huile":["cl",3],"tortilla(s)":["u",8],"bœuf haché":["g",400],"fromage râpé":["g",100],"salsa":["cl",15]},"liste_de_courses":{"œuf(s)":["u",3],"beurre":["g",15],"tranche(s) de jambon":["u",1]}}`;
+        var save = localStorage.getItem("recettemastersave")
+          ? localStorage.getItem("recettemastersave")
+          : fakesave;
+
+        localsave = JSON.parse(save);
+        global_ingredient_names = localsave.global_ingredient_names;
+        mes_recettes = localsave.mes_recettes.map(
+          (e) => new Recette(e[0], e[1])
+        );
+        garde_manger = localsave.garde_manger;
+        liste_de_courses = localsave.liste_de_courses;
+
+        $("#liste_de_courses, #garde_manger").hide();
+
+        updateGlobalIngredientNames();
+
+        renderMesRecettes();
+      }
+
+      $(document).ready(function () {
+        init();
+
+        // Click sur l'icône pour ajouter une recette
+        $("#add_recette").on("click", addRecette);
+
+        // Voir la liste de courses
+        $(".display_liste_de_courses").on("click", function () {
+          $("#recette_list, #garde_manger").hide();
+          $("#liste_de_courses").show();
+          renderCoursesIngredients();
+          renderCoursesRecettes();
+        });
+
+        // Voir le garde-manger
+        $(".display_garde_manger").on("click", function () {
+          $("#recette_list, #liste_de_courses").hide();
+          $("#garde_manger").show();
+          renderGardeManger();
+        });
+
+        // Voir les recettes
+        $(".display_recettes").on("click", function () {
+          $("#liste_de_courses, #garde_manger").hide();
+          $("#recette_list").show();
+          renderMesRecettes();
+        });
+
+        // Click sur l'icône pour passer du côté obscur de la force
+        $("#toggle_dark_mode").on("click", function () {
+          if ($("html").attr("data-bs-theme") == "dark") {
+            $("html").attr("data-bs-theme", "light");
+          } else {
+            $("html").attr("data-bs-theme", "dark");
+          }
+        });
+
+        // Double-click sur la barre de navigation pour supprimer la sauvegarde
+        $("nav").on("dblclick", deleteSave);
+      });
+    </script>
+  </body>
+</html>

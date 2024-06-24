@@ -1,0 +1,68 @@
+:root {
+  --bg-green: lightgreen;
+  --bg-blue: lightblue;
+  --bg-red: pink;
+  --bg-orange: #ffd580;
+  --bg-soft: #ccf;
+}
+[data-bs-theme="dark"] {
+  --bg-red: darkred;
+  --bg-orange: darkorange;
+  --bg-green: darkgreen;
+  --bg-blue: darkblue;
+  --bg-soft: #336;
+}
+.bg-soft {
+  background-color: var(--bg-soft);
+}
+#recette_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+#liste_de_courses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+.recette {
+  border-radius: 4px;
+  border: 1px solid var(--bs-primary-bg-subtle);
+}
+.recette h2 {
+  background: var(--bg-soft);
+  width: 100%;
+  text-align: center;
+}
+.withshopping .manger,
+.impossible .manger {
+  display: none;
+}
+.recette.withshopping h2 {
+  background: var(--bg-orange);
+}
+.recette.impossible h2 {
+  background: var(--bg-red);
+}
+.recette.possible h2 {
+  background: var(--bg-green);
+}
+.recette.new h2 {
+  background: var(--bg-blue);
+}
+.recette h2 span {
+  cursor: pointer;
+}
+#add_recette,
+#toggle_dark_mode {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+nav > div {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
